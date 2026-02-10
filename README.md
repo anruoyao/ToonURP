@@ -39,7 +39,7 @@
 
 2. **克隆修改过的 URP**
    ```
-   git clone -b toon-urp https://github.com/anruoyao/URP-Package.git
+   git clone https://github.com/anruoyao/URP-Package.git
    git clone https://github.com/anruoyao/URP-Config-Package.git
    ```
 
