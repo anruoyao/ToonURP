@@ -7,42 +7,60 @@
 
 ## 安装使用
 
+### 方法 1：一键安装（推荐）
+
+1. **下载一键安装脚本**
+   - 从 `ToonURP` 仓库下载 `INSTALL_TOONURP.ps1` 脚本
+
+2. **运行脚本**
+   - 在 Unity 项目根目录（包含 `Packages` 文件夹的目录）运行脚本
+   - 脚本会自动完成所有安装步骤
+
+3. **等待安装完成**
+   - 脚本会自动：
+     - 克隆修改过的 URP
+     - 克隆 URP 配置包
+     - 克隆 ToonURP 主包
+     - 拉取大文件（Git LFS）
+     - 初始化 LWGUI 子模块
+
+4. **配置 URP**
+   - 使用 `Setting` 文件夹下的 `URP-HighFidelity.asset`
+
+### 方法 2：手动安装
+
 > 可以参考项目[ToonURP-Sample](https://github.com/Reuben-Sun/ToonURP-Sample)
 
-0. 使用Unity 2022.3创建一个build-in的项目（因为之后要自行添加URP包）
+0. **创建项目**
+   - 使用 Unity 2022.3 创建一个 build-in 的项目
 
-1. 进入Unity项目的Packages文件夹
-2. 运行（这一步是clone一个我略微修改的URP package）
+1. **进入 Packages 文件夹**
+   - 打开命令行，进入 Unity 项目的 Packages 目录
 
-```
-git clone -b toon-urp https://github.com/anruoyao/URP-Package.git
-git clone https://github.com/anruoyao/URP-Config-Package.git
-```
+2. **克隆修改过的 URP**
+   ```
+   git clone -b toon-urp https://github.com/anruoyao/URP-Package.git
+   git clone https://github.com/anruoyao/URP-Config-Package.git
+   ```
 
-3. 运行（clone ToonURP）
+3. **克隆 ToonURP**
+   ```
+   git clone https://github.com/anruoyao/ToonURP.git
+   ```
 
-```
-git clone https://github.com/anruoyao/ToonURP.git
-```
+4. **拉取大文件**
+   ```
+   cd ToonURP
+   git lfs pull
+   ```
 
-使用git lfs拉取二进制资源
-```
-cd ToonURP
-git lfs pull
-```
+5. **初始化子模块**
+   ```
+   git submodule update --init --recursive
+   ```
 
-> 如果你只打算使用ToonURP包，并不进行开发和查看历史记录，你可以使用浅克隆，以加速下载速度
-> 
-> `git clone --depth 1 https://github.com/anruoyao/ToonURP.git`
-
-4. 并拉新submodule（clone LWGUI）
-
-```
-cd ToonURP
-git submodule update --init --recursive
-```
-
-5. 替换Render Pipeline Assets，使用Setting文件夹下的URP-HighFidelity.asset（或者使用自己的URP Asset）
+6. **配置 URP**
+   - 使用 `Setting` 文件夹下的 `URP-HighFidelity.asset`
 
 ![替换资产](Documentation~/image/replace_assets.png)
 
