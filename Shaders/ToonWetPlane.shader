@@ -2,73 +2,73 @@
 {
     Properties
     {
-        _BaseColor("BaseColor", Color) = (1, 1, 1, 1)
+        _BaseColor("基础颜色", Color) = (1, 1, 1, 1)
         // Surface
-        [Main(Surface, _, off, off)] _SurfaceGroup("Surface", Float) = 0
+        [Main(Surface, _, off, off)] _SurfaceGroup("表面", Float) = 0
 
-        [SubToggle(Surface, _ALBEDOMAP)] _EnableAlbedoMap("Enable Albedo Map", Float) = 0.0
-        [Tex(Surface_ALBEDOMAP)] [ShowIf(_EnableAlbedoMap, Equal, 1)] _MainTex ("Albedo", 2D) = "white" {}
+        [SubToggle(Surface, _ALBEDOMAP)] _EnableAlbedoMap("启用反照率贴图", Float) = 0.0
+        [Tex(Surface_ALBEDOMAP)] [ShowIf(_EnableAlbedoMap, Equal, 1)] _MainTex ("反照率", 2D) = "white" {}
 
-        [Sub(Surface)]_Roughness("Roughness", Range(0,1.0)) = 1.0
-        [SubToggle(Surface, _ROUGHNESSMAP)] _EnableRoughnessMap("Enable Roughness Map", Float) = 0.0
-        [Tex(Surface_ROUGHNESSMAP)] [ShowIf(_EnableRoughnessMap, Equal, 1)] _RoughnessMap("RoughnessMap", 2D) = "white" {}
+        [Sub(Surface)]_Roughness("粗糙度", Range(0,1.0)) = 1.0
+        [SubToggle(Surface, _ROUGHNESSMAP)] _EnableRoughnessMap("启用粗糙度贴图", Float) = 0.0
+        [Tex(Surface_ROUGHNESSMAP)] [ShowIf(_EnableRoughnessMap, Equal, 1)] _RoughnessMap("粗糙度贴图", 2D) = "white" {}
 
-        [Sub(Surface)]_Metallic("Metallic", Range(0,1.0)) = 1.0
-        [SubToggle(Surface, _METALLICMAP)] _EnableMetallicMap("Enable Metallic Map", Float) = 0.0
-        [Tex(Surface_METALLICMAP)] [ShowIf(_EnableMetallicMap, Equal, 1)] _MetallicMap("MetallicMap", 2D) = "white" {}
+        [Sub(Surface)]_Metallic("金属度", Range(0,1.0)) = 1.0
+        [SubToggle(Surface, _METALLICMAP)] _EnableMetallicMap("启用金属度贴图", Float) = 0.0
+        [Tex(Surface_METALLICMAP)] [ShowIf(_EnableMetallicMap, Equal, 1)] _MetallicMap("金属度贴图", 2D) = "white" {}
 
-        [SubToggle(Surface, _NORMALMAP)] _EnableNormalMap("Enable Normal Map", Float) = 0.0
-        [Tex(Surface_NORMALMAP)] [ShowIf(_EnableNormalMap, Equal, 1)] _NormalMap("NormalMap", 2D) = "white" {}
+        [SubToggle(Surface, _NORMALMAP)] _EnableNormalMap("启用法线贴图", Float) = 0.0
+        [Tex(Surface_NORMALMAP)] [ShowIf(_EnableNormalMap, Equal, 1)] _NormalMap("法线贴图", 2D) = "white" {}
 
-        [SubToggle(Surface, _OCCLUSIONMAP)] _EnableOcclusionMap("Enable Occlusion", Float) = 0.0
-        [Tex(Surface_OCCLUSIONMAP)] [ShowIf(_EnableOcclusionMap, Equal, 1)] _OcclusionMap("OcclusionMap", 2D) = "white" {}
+        [SubToggle(Surface, _OCCLUSIONMAP)] _EnableOcclusionMap("启用遮挡", Float) = 0.0
+        [Tex(Surface_OCCLUSIONMAP)] [ShowIf(_EnableOcclusionMap, Equal, 1)] _OcclusionMap("遮挡贴图", 2D) = "white" {}
 
-        [SubToggle(Surface, _EMISSION)] _EnableEmission("Enable Emission", Float) = 0.0
-        [Sub(Surface)] [ShowIf(_EnableEmission, Equal, 1)] [HDR]_EmissionColor("Emission Color", Color) = (0,0,0,1)
+        [SubToggle(Surface, _EMISSION)] _EnableEmission("启用自发光", Float) = 0.0
+        [Sub(Surface)] [ShowIf(_EnableEmission, Equal, 1)] [HDR]_EmissionColor("自发光颜色", Color) = (0,0,0,1)
 
         // Lighting mode
-        [Main(ShadingMode, _, off, off)] _ShadingModeGroup("ShadingMode", float) = 0
-        [KWEnum(ShadingMode, CelShading, _CELLSHADING, PBRShading, _PBRSHADING, WetPlane, _CUSTOMSHADING)] _EnumShadingMode ("Mode", float) = 2
-        [SubToggle(ShadingMode)] _UseHalfLambert ("Use HalfLambert (More Flatter)", float) = 0
-        [SubToggle(ShadingMode)] _UseRadianceOcclusion ("Radiance Occlusion", float) = 0
-        [Sub(ShadingMode)] _SpecularColor ("Specular Color", Color) = (1,1,1,1)
-        [Sub(ShadingMode)] [HDR] _HighColor ("Hight Color", Color) = (1,1,1,1)
-        [Sub(ShadingMode)] _DarkColor ("Dark Color", Color) = (0,0,0,1)
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _CellThreshold ("Cell Threshold", Range(0.01,1)) = 0.5
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _CellSmoothing ("Cell Smoothing", Range(0.001,1)) = 0.001
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularIntensity ("Specular Intensity", Range(0,8)) = 1
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularSize ("Specular Size", Range(0,1)) = 0.1
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularSoftness ("Specular Softness", Range(0.001,1)) = 0.05
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularAlbedoWeight ("Color Albedo Weight", Range(0,1)) = 0
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _ScatterColor ("Scatter Color", Color) = (1,1,1,1)
-        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _ScatterWeight ("Scatter Weight", Range(4,20)) = 10
-        [Sub(ShadingMode_CUSTOMSHADING)] _CustomFloat1 ("Noise Intensity",Range(-0.2,0.2)) = 0.0
-        [Tex(ShadingMode_CUSTOMSHADING)] _CustomMap1("Noise Map", 2D) = "white" {}
+        [Main(ShadingMode, _, off, off)] _ShadingModeGroup("着色模式", float) = 0
+        [KWEnum(ShadingMode, CelShading, _CELLSHADING, PBRShading, _PBRSHADING, WetPlane, _CUSTOMSHADING)] _EnumShadingMode ("模式", float) = 2
+        [SubToggle(ShadingMode)] _UseHalfLambert ("使用 HalfLambert（更平坦）", float) = 0
+        [SubToggle(ShadingMode)] _UseRadianceOcclusion ("辐射遮挡", float) = 0
+        [Sub(ShadingMode)] _SpecularColor ("高光颜色", Color) = (1,1,1,1)
+        [Sub(ShadingMode)] [HDR] _HighColor ("高光颜色", Color) = (1,1,1,1)
+        [Sub(ShadingMode)] _DarkColor ("暗部颜色", Color) = (0,0,0,1)
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _CellThreshold ("色块阈值", Range(0.01,1)) = 0.5
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _CellSmoothing ("色块平滑", Range(0.001,1)) = 0.001
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularIntensity ("高光强度", Range(0,8)) = 1
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularSize ("高光大小", Range(0,1)) = 0.1
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularSoftness ("高光柔和度", Range(0.001,1)) = 0.05
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _SpecularAlbedoWeight ("颜色反照率权重", Range(0,1)) = 0
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _ScatterColor ("散射颜色", Color) = (1,1,1,1)
+        [Sub(ShadingMode)] [ShowIf(_EnumShadingMode, Equal, 0)] _ScatterWeight ("散射权重", Range(4,20)) = 10
+        [Sub(ShadingMode_CUSTOMSHADING)] _CustomFloat1 ("噪点强度",Range(-0.2,0.2)) = 0.0
+        [Tex(ShadingMode_CUSTOMSHADING)] _CustomMap1("噪点贴图", 2D) = "white" {}
 
         // Rim
-        [Main(Rim, _, off, off)] _RimGroup("RimSettings", float) = 0
-        [KWEnum(Rim, None, _, FresnelRim, _FRESNELRIM)] _EnumRim ("Rim Mode", float) = 0
-        [Sub(Rim)] [ShowIf(_EnumRim, NEqual, 0)] _RimDirectionLightContribution("DirLight Contribution", Range(0,1)) = 1.0
-        [Sub(Rim)] [ShowIf(_EnumRim, NEqual, 0)] [HDR] _RimColor("Rim Color",Color) = (1,1,1,1)
-        [Sub(Rim)] [ShowIf(_EnumRim, Equal, 1)] _RimThreshold("Rim Threshold",Range(0,1)) = 0.2
-        [Sub(Rim)] [ShowIf(_EnumRim, Equal, 1)] _RimSoftness("Rim Softness",Range(0.001,1)) = 0.01
+        [Main(Rim, _, off, off)] _RimGroup("边缘光设置", float) = 0
+        [KWEnum(Rim, None, _, FresnelRim, _FRESNELRIM)] _EnumRim ("边缘光模式", float) = 0
+        [Sub(Rim)] [ShowIf(_EnumRim, NEqual, 0)] _RimDirectionLightContribution("方向光贡献", Range(0,1)) = 1.0
+        [Sub(Rim)] [ShowIf(_EnumRim, NEqual, 0)] [HDR] _RimColor("边缘光颜色",Color) = (1,1,1,1)
+        [Sub(Rim)] [ShowIf(_EnumRim, Equal, 1)] _RimThreshold("边缘光阈值",Range(0,1)) = 0.2
+        [Sub(Rim)] [ShowIf(_EnumRim, Equal, 1)] _RimSoftness("边缘光柔和度",Range(0.001,1)) = 0.01
 
         // MultLightSetting
-        [Main(MultLightSetting, _, off, off)] _MultipleLightGroup ("MultLightSetting", float) = 0
-        [SubToggle(MultLightSetting)] _LimitAdditionLightNum("Limit Addition Light Number", Float) = 0
-        [Sub(MultLightSetting)] [ShowIf(_LimitAdditionLightNum, Equal, 1)] _MaxAdditionLightNum("Max Additional Light Number", Range(0, 8)) = 1
+        [Main(MultLightSetting, _, off, off)] _MultipleLightGroup ("多光源设置", float) = 0
+        [SubToggle(MultLightSetting)] _LimitAdditionLightNum("限制额外光源数量", Float) = 0
+        [Sub(MultLightSetting)] [ShowIf(_LimitAdditionLightNum, Equal, 1)] _MaxAdditionLightNum("最大额外光源数量", Range(0, 8)) = 1
 
         // Shadow
-        [Main(ShadowSetting, _, off, off)] _ShadowSettingGroup ("ShadowSetting", float) = 1
-        [SubToggle(ShadowSetting, _RECEIVE_SHADOWS_OFF)] _RECEIVE_SHADOWS_OFF("Receive Shadow Off", Float) = 0
+        [Main(ShadowSetting, _, off, off)] _ShadowSettingGroup ("阴影设置", float) = 1
+        [SubToggle(ShadowSetting, _RECEIVE_SHADOWS_OFF)] _RECEIVE_SHADOWS_OFF("关闭接收阴影", Float) = 0
 
         // RenderSetting
-        [Main(RenderSetting, _, off, off)] _RenderSettingGroup("RenderSetting", float) = 0
-        [Preset(RenderSetting, Toon_BlendModePreset)] _BlendMode ("Blend Mode Preset", float) = 0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Alpha", Float) = 1.0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _DstBlend("Dst Alpha", Float) = 0.0
-        [SubEnum(RenderSetting, Off, 0, On, 1)] _ZWrite("Z Write", Float) = 1.0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("Cull Mode", Float) = 2.0
+        [Main(RenderSetting, _, off, off)] _RenderSettingGroup("渲染设置", float) = 0
+        [Preset(RenderSetting, Toon_BlendModePreset)] _BlendMode ("混合模式预设", float) = 0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _SrcBlend("源Alpha", Float) = 1.0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _DstBlend("目标Alpha", Float) = 0.0
+        [SubEnum(RenderSetting, Off, 0, On, 1)] _ZWrite("Z写入", Float) = 1.0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("剔除模式", Float) = 2.0
     }
     SubShader
     {

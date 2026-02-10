@@ -3,23 +3,23 @@ Shader "ToonURP/Grass"
     Properties
     {
         [Header(Shading)]
-        _TopColor("Top Color", Color) = (1,1,1,1)
-        _BottomColor("Bottom Color", Color) = (1,1,1,1)
-        _TranslucentGain("Translucent Gain", Range(0,1)) = 0.5
+        _TopColor("顶部颜色", Color) = (1,1,1,1)
+        _BottomColor("底部颜色", Color) = (1,1,1,1)
+        _TranslucentGain("半透明增益", Range(0,1)) = 0.5
         [Header(Shape)]
-        _BendRotationRandom("Bend Rotation Random", Range(0,1)) = 0.2
-        _BladeWidth("Blade Width", Float) = 5
-        _BladeWidthRandom("Blade Width Random", Float) = 0.02
-        _BladeHeight("Blade Height", Float) = 10
-        _BladeHeightRandom("Blade Height Random", Float) = 0.3
-        _TessellationUniform("Tessellation Uniform", Range(1, 64)) = 1
+        _BendRotationRandom("弯曲旋转随机", Range(0,1)) = 0.2
+        _BladeWidth("草叶宽度", Float) = 5
+        _BladeWidthRandom("草叶宽度随机", Float) = 0.02
+        _BladeHeight("草叶高度", Float) = 10
+        _BladeHeightRandom("草叶高度随机", Float) = 0.3
+        _TessellationUniform("均匀细分", Range(1, 64)) = 1
 
-        _BladeForward("Blade Forward Amount", Float) = 0.38
-        _BladeCurve("Blade Curvature Amount", Range(1,4)) = 2
+        _BladeForward("草叶前倾量", Float) = 0.38
+        _BladeCurve("草叶曲率量", Range(1,4)) = 2
         [Header(Wind)]
-        _WindDistortionMap("Wind Distortion Map", 2D) = "white" {}
-        _WindFrequency("Wind Frequency", Vector) = (0.05, 0.05, 0, 0)
-        _WindStrength("Wind Strength", Float) = 0.1
+        _WindDistortionMap("风扭曲贴图", 2D) = "white" {}
+        _WindFrequency("风频率", Vector) = (0.05, 0.05, 0, 0)
+        _WindStrength("风强度", Float) = 0.1
 
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Toon_BlendModePreset
   m_EditorClassIdentifier: 
   presets: 
-  - presetName: Opaque
+  - presetName: 不透明
     propertyValues:
     - propertyName: _SrcBlend
       propertyType: 2
@@ -36,7 +36,7 @@ MonoBehaviour:
     enabledKeywords: []
     disabledKeywords: []
     renderQueue: 2000
-  - presetName: Translucency
+  - presetName: 半透明
     propertyValues:
     - propertyName: _SrcBlend
       propertyType: 2

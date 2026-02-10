@@ -2,9 +2,9 @@
 {
     Properties
     {
-        [SubToggle(Surface, _NORMALMAP)] _EnableNormalMap("Enable Normal Map", Float) = 0.0
-        [Tex(Surface_NORMALMAP)] [ShowIf(_EnableNormalMap, Equal, 1)] _NormalMap("NormalMap", 2D) = "white" {}
-        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("Cull Mode", Float) = 2.0
+        [SubToggle(Surface, _NORMALMAP)] _EnableNormalMap("启用法线贴图", Float) = 0.0
+        [Tex(Surface_NORMALMAP)] [ShowIf(_EnableNormalMap, Equal, 1)] _NormalMap("法线贴图", 2D) = "white" {}
+        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("剔除模式", Float) = 2.0
     }
     SubShader
     {

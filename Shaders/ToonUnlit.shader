@@ -2,19 +2,19 @@
 {
     Properties
     {
-        _BaseColor("BaseColor", Color) = (1, 1, 1, 1)
+        _BaseColor("基础颜色", Color) = (1, 1, 1, 1)
         // Surface
-        [Main(Surface, _, off, off)] _SurfaceGroup("Surface", Float) = 0
-        [SubToggle(Surface, _ALBEDOMAP)] _EnableAlbedoMap("Enable Albedo Map", Float) = 0.0
-        [Tex(Surface_ALBEDOMAP)] [ShowIf(_EnableAlbedoMap, Equal, 1)] _MainTex ("Albedo", 2D) = "white" {}
+        [Main(Surface, _, off, off)] _SurfaceGroup("表面", Float) = 0
+        [SubToggle(Surface, _ALBEDOMAP)] _EnableAlbedoMap("启用反照率贴图", Float) = 0.0
+        [Tex(Surface_ALBEDOMAP)] [ShowIf(_EnableAlbedoMap, Equal, 1)] _MainTex ("反照率", 2D) = "white" {}
 
         // RenderSetting
-        [Main(RenderSetting, _, off, off)] _RenderSettingGroup("RenderSetting", float) = 0
-        [Preset(RenderSetting, Toon_BlendModePreset)] _BlendMode ("Blend Mode Preset", float) = 0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _SrcBlend("Src Alpha", Float) = 1.0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _DstBlend("Dst Alpha", Float) = 0.0
-        [SubEnum(RenderSetting, Off, 0, On, 1)] _ZWrite("Z Write", Float) = 1.0
-        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("Cull Mode", Float) = 2.0
+        [Main(RenderSetting, _, off, off)] _RenderSettingGroup("渲染设置", float) = 0
+        [Preset(RenderSetting, Toon_BlendModePreset)] _BlendMode ("混合模式预设", float) = 0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _SrcBlend("源Alpha", Float) = 1.0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.BlendMode)] _DstBlend("目标Alpha", Float) = 0.0
+        [SubEnum(RenderSetting, Off, 0, On, 1)] _ZWrite("Z写入", Float) = 1.0
+        [SubEnum(RenderSetting, UnityEngine.Rendering.CullMode)] _Cull("剔除模式", Float) = 2.0
     }
     SubShader
     {
