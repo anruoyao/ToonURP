@@ -15,14 +15,14 @@
 2. 运行（这一步是clone一个我略微修改的URP package）
 
 ```
-git clone -b toon-urp https://github.com/Reuben-Sun/URP-Package.git
-git clone https://github.com/Reuben-Sun/URP-Config-Package.git
+git clone -b toon-urp https://github.com/anruoyao/URP-Package.git
+git clone https://github.com/anruoyao/URP-Config-Package.git
 ```
 
 3. 运行（clone ToonURP）
 
 ```
-git clone https://github.com/Reuben-Sun/ToonURP.git
+git clone https://github.com/anruoyao/ToonURP.git
 ```
 
 使用git lfs拉取二进制资源
@@ -33,7 +33,7 @@ git lfs pull
 
 > 如果你只打算使用ToonURP包，并不进行开发和查看历史记录，你可以使用浅克隆，以加速下载速度
 > 
-> `git clone --depth 1 https://github.com/Reuben-Sun/ToonURP.git`
+> `git clone --depth 1 https://github.com/anruoyao/ToonURP.git`
 
 4. 并拉新submodule（clone LWGUI）
 
